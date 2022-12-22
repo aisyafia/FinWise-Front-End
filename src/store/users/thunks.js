@@ -1,5 +1,6 @@
 import axios from "axios";
 import { loginSuccess } from "./slice";
+import { selectToken } from "./selectors";
 
 const apiUrl = "http://localhost:4000";
 
@@ -13,6 +14,18 @@ export const login = (email, password) => async (dispatch, getState) => {
     dispatch(
       loginSuccess({ token: response.data.token, profile: response.data.user })
     );
+  } catch (error) {
+    console.log("An error has occurred", error);
+  }
+};
+
+export const fetchAllPartners = async (dispatch, getState) => {
+  const token = selectToken(getState());
+  try {
+    const response = await axios.get(`${apiUrl}/partners`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    console.log("all partners thunk", response);
   } catch (error) {
     console.log("An error has occurred", error);
   }

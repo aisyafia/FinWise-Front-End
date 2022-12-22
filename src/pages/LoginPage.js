@@ -1,12 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { login } from "../store/users/thunks";
 import { useDispatch, useSelector } from "react-redux";
 import { selectUser, selectToken } from "../store/users/selectors";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const token = useSelector(selectToken);
+
+  useEffect(() => {
+    if (token !== null) {
+      navigate("/partners");
+    }
+  }, [token, navigate]);
 
   const submitForm = (e) => {
     e.preventDefault();
