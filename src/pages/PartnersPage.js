@@ -1,12 +1,17 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchAllPartners } from "../store/users/thunks";
+import { selectToken } from "../store/users/selectors";
 const PartnersPage = () => {
   const dispatch = useDispatch();
+  const token = useSelector(selectToken);
 
   useEffect(() => {
-    dispatch(fetchAllPartners());
-  }, []);
+    if (token !== null) {
+      dispatch(fetchAllPartners);
+    }
+  }, [dispatch]);
+
   return (
     <div>
       <h3>Find your experts:</h3>

@@ -21,6 +21,7 @@ export const login = (email, password) => async (dispatch, getState) => {
 
 export const fetchAllPartners = async (dispatch, getState) => {
   const token = selectToken(getState());
+  console.log("do we get token?", token);
   try {
     const response = await axios.get(`${apiUrl}/partners`, {
       headers: { Authorization: `Bearer ${token}` },

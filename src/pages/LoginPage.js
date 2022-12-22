@@ -12,11 +12,9 @@ const LoginPage = () => {
 
   const token = useSelector(selectToken);
 
-  useEffect(() => {
-    if (token !== null) {
-      navigate("/partners");
-    }
-  }, [token, navigate]);
+  // useEffect(() => {
+
+  // }, [token, navigate]);
 
   const submitForm = (e) => {
     e.preventDefault();
@@ -25,6 +23,9 @@ const LoginPage = () => {
     setEmail("");
     setPassword("");
     // console.log("token", token);
+    if (token !== null) {
+      navigate("/partners");
+    }
   };
 
   return (
