@@ -15,6 +15,7 @@ const PartnersPage = () => {
   return (
     <div>
       <h3>Find your experts:</h3>
+      <p>Please login to acccess our </p>
     </div>
   );
 };
