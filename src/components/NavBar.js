@@ -1,5 +1,10 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { selectToken } from "../store/users/selectors";
+import { logOut } from "../store/users/slice";
 const NavBar = () => {
+  const token = useSelector(selectToken);
+  const dispatch = useDispatch();
   return (
     <div>
       <h1>Pay-slip-and-slide</h1>
@@ -10,7 +15,11 @@ const NavBar = () => {
         <NavLink to="/partners">Our Partners</NavLink>
       </div>
       <div>
-        <NavLink to="/login">Login</NavLink>
+        {token ? (
+          <button onClick={() => dispatch(logOut())}>Log out</button>
+        ) : (
+          <NavLink to="/login">Login</NavLink>
+        )}
       </div>
     </div>
   );

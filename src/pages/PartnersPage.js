@@ -1,10 +1,12 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllPartners } from "../store/users/thunks";
-import { selectToken } from "../store/users/selectors";
+import { selectToken, selectUser } from "../store/users/selectors";
 const PartnersPage = () => {
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
+  const partners = useSelector(selectUser);
 
   useEffect(() => {
     if (token !== null) {
@@ -15,7 +17,21 @@ const PartnersPage = () => {
   return (
     <div>
       <h3>Find your experts:</h3>
-      <p>Please login to acccess our </p>
+      {!token ? (
+        <p>
+          Please <Link to="/login">login</Link> to see our partners
+        </p>
+      ) : (
+        partners &&
+        partners.map((p) => {
+          return (
+            <div>
+              <h4>{p.companyName}</h4>
+              <p>{p.companyLocation}</p>
+            </div>
+          );
+        })
+      )}
     </div>
   );
 };

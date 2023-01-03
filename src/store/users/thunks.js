@@ -1,5 +1,5 @@
 import axios from "axios";
-import { loginSuccess } from "./slice";
+import { loginSuccess, allPartnersFetched } from "./slice";
 import { selectToken } from "./selectors";
 
 const apiUrl = "http://localhost:4001";
@@ -26,7 +26,8 @@ export const fetchAllPartners = async (dispatch, getState) => {
     const response = await axios.get(`${apiUrl}/partners`, {
       headers: { Authorization: `Bearer ${token}` },
     });
-    console.log("all partners thunk", response);
+    // console.log("all partners thunk", response.data);
+    dispatch(allPartnersFetched(response.data));
   } catch (error) {
     console.log("An error has occurred", error);
   }

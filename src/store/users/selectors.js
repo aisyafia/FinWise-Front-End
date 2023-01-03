@@ -1,3 +1,3 @@
-export const selectToken = (state) => state.token;
+export const selectToken = (state) => state.userReducer.token;
 
-export const selectUser = (reduxState) => reduxState.profile;
+export const selectUser = (state) => state.userReducer.profile;
