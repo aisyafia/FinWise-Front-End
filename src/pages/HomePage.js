@@ -1,3 +1,9 @@
+import {
+  SlFolderAlt,
+  SlCloudUpload,
+  SlArrowRight,
+  SlEyeglass,
+} from "react-icons/sl";
 import { InputField } from "../components";
 
 const HomePage = () => {
@@ -8,6 +14,26 @@ const HomePage = () => {
       <h2>Understand what you earn</h2>
       <div>
         <h2>How to start?</h2>
+        <div>
+          <SlFolderAlt />
+          <br />
+          <p>Select your payslip PDF</p>
+        </div>
+        <div>
+          <SlCloudUpload />
+          <br />
+          <p>Upload</p>
+        </div>
+        <div>
+          <SlArrowRight />
+          <br />
+          <p>Submit</p>
+        </div>
+        <div>
+          <SlEyeglass />
+          <br />
+          <p>Read away!</p>
+        </div>
         <InputField />
       </div>
       <br />
