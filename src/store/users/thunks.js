@@ -2,7 +2,7 @@ import axios from "axios";
 import { loginSuccess } from "./slice";
 import { selectToken } from "./selectors";
 
-const apiUrl = "http://localhost:4000";
+const apiUrl = "http://localhost:4001";
 
 export const login = (email, password) => async (dispatch, getState) => {
   try {

@@ -1,19 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 const NavBar = () => {
   return (
     <div>
       <h1>Pay-slip-and-slide</h1>
       <div>
-        <Link to={`/`}>
-          <button>Home</button>
-        </Link>
-        <Link to={`/partners`}>
-          <button>Our Partners</button>
-        </Link>
+        <NavLink to="/">Home</NavLink>
       </div>
-      <Link to={`/login`}>
-        <button>Login</button>
-      </Link>
+      <div>
+        <NavLink to="/partners">Our Partners</NavLink>
+      </div>
+      <div>
+        <NavLink to="/login">Login</NavLink>
+      </div>
     </div>
   );
 };
