@@ -13,6 +13,11 @@ const HomePage = () => {
     <div>
       <h2>Understand what you earn</h2>
       <div>
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/1945/1945929.png"
+          width="30em"
+          alt="pdf 2d"
+        />
         <h2>How to start?</h2>
         <div>
           <SlFolderAlt />
@@ -39,16 +44,23 @@ const HomePage = () => {
       <br />
       <br />
       <div>
+        <img
+          src="https://s.smallpdf.com/static/2e2d4d86b07e272f0e17.svg"
+          alt="lock 2d"
+        />
         <h2>
           <strong>IMPORTANT!</strong>
         </h2>
         <p>
           Your PRIVACY is VERY IMPORTANT to us. We <strong>DO NOT</strong> store
           or record <em>ANY</em> of your personal information from your uploaded
-          file(s) in our system. We merely capture and reflect it back to you,
-          alongside our financial translation{" "}
+          file(s) in our system. We do not save files in our server.
         </p>
         <br />
+        <img
+          src="https://s.smallpdf.com/static/ce852e16512bd6e094f1.svg"
+          alt="medal 2d"
+        />
         <h2>Why the service?</h2>
 
         <p>
@@ -68,6 +80,10 @@ const HomePage = () => {
         </p>
 
         <br />
+        <img
+          src="https://s.smallpdf.com/static/7ca27d0428c9614899dc.svg"
+          alt="lightbulb 2d"
+        />
         <h2>Why should you understand?</h2>
 
         <p>
