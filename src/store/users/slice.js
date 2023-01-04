@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   token: localStorage.getItem("token"),
-  profile: [] | null,
+  profile: null,
+  partners: null,
 };
 
 export const userSlice = createSlice({
@@ -22,7 +23,7 @@ export const userSlice = createSlice({
     },
     allPartnersFetched: (state, action) => {
       // console.log("action?", action);
-      state.profile = action.payload;
+      state.partners = action.payload;
     },
   },
 });

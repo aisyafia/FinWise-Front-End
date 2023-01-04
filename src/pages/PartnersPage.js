@@ -2,17 +2,22 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllPartners } from "../store/users/thunks";
-import { selectToken, selectUser } from "../store/users/selectors";
+import { selectToken, selectPartner } from "../store/users/selectors";
+
 const PartnersPage = () => {
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
-  const partners = useSelector(selectUser);
+  const partners = useSelector(selectPartner);
 
   useEffect(() => {
     if (token !== null) {
       dispatch(fetchAllPartners);
     }
-  }, [dispatch]);
+  }, [token, dispatch]);
+
+  // if (!partners) {
+  //   return [];
+  // }
 
   return (
     <div>
