@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAllPartners } from "../store/users/thunks";
-import { selectToken, selectPartner } from "../store/users/selectors";
+import { fetchAllPartners } from "../store/providers/thunks";
+import { selectToken } from "../store/users/selectors";
+import { selectPartner } from "../store/providers/selectors";
 
 const PartnersPage = () => {
   const dispatch = useDispatch();
