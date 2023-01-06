@@ -32,7 +32,9 @@ const PartnersPage = () => {
         partners.map((p) => {
           return (
             <div>
-              <h4>{p.companyName}</h4>
+              <Link to={`/partners/${p.id}`}>
+                <h4>{p.companyName}</h4>
+              </Link>
               <p>{p.companyLocation}</p>
             </div>
           );
