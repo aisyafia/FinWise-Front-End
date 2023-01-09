@@ -4,9 +4,20 @@ import axios from "axios";
 import definitions from "../definitions.json";
 import { useDispatch } from "react-redux";
 import { foundWords, downloadedFile } from "../store/files/slice";
+import { Document, Page } from "react-pdf/dist/esm/entry.webpack";
+
+const options = {
+  cMapUrl: "cmaps/",
+  cMapPacked: true,
+  standardFontDataUrl: "standard_fonts/",
+};
 
 const InputField = () => {
   const [file, setFile] = useState(null);
+  const [numPages, setNumPages] = useState(null);
+  const onLoadSuccess = ({ numPages }) => {
+    setNumPages(numPages);
+  };
 
   const apiUrl = "http://localhost:4001";
 
@@ -58,6 +69,11 @@ const InputField = () => {
           onChange={handleFileChange}
         />
         <button type="submit">Upload your file</button>
+        {/* <div style={{ visibility: file ? "visible" : "hidden" }}>
+          <Document file={file} onLoadSuccess={onLoadSuccess}>
+            <Page height="600" pageNumber={1} />
+          </Document>
+        </div> */}
       </form>
     </div>
   );
