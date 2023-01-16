@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { login } from "../store/users/thunks";
 import { useDispatch, useSelector } from "react-redux";
 import { selectUser, selectToken } from "../store/users/selectors";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -50,7 +50,10 @@ const LoginPage = () => {
         <button type="submit">Login</button>
       </form>
       <br />
-      <p>Don't have an account yet? Click here to sign up! </p>
+      <p>
+        Don't have an account yet? Click <Link to="/signup">here</Link> to sign
+        up!{" "}
+      </p>
     </div>
   );
 };
