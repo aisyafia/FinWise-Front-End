@@ -27,7 +27,12 @@ export const signUpUser =
         password,
         serviceProvider,
       });
-      console.log("SUuser response", response);
+      dispatch(
+        loginSuccess({
+          token: response.data.token,
+          profile: response.data.user,
+        })
+      );
     } catch (error) {
       if (error.response) {
         console.log(error.response.data.message);

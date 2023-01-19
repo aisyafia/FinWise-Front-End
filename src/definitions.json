@@ -1,8 +1,66 @@
 [
-  { "term": "bruto", "description": "This is your monthly gross salary" },
-  { "term": "jaarloon", "description": "This is your annual wage VAT" },
+  {
+    "term": "bruto",
+    "description": "Bruto: This is your monthly gross salary"
+  },
+  {
+    "term": "jaarloon",
+    "description": "Jaarloon: This is your annual wage VAT"
+  },
   {
     "term": "Pensioenpremie",
-    "description": "This is the monthly premium you paid for your pension"
+    "description": "Pensioenpremie: This is the monthly premium you paid for your pension (old age insurence)"
+  },
+  {
+    "term": "premie",
+    "description": "Premie: This is the monthly premium you paid for your pension"
+  },
+  {
+    "term": "LH/LH korting",
+    "description": "LH/LH Korting: This is the applicable tax or tax discount for your salary"
+  },
+  {
+    "term": "salaris",
+    "description": "Salaris: This is your base salary"
+  },
+  {
+    "term": "ZVW",
+    "description": "ZVW: This signifies whether your employer covered your health insurance"
+  },
+  {
+    "term": "WW",
+    "description": "WW: This signifies whether your employer covered your unemployment insurance"
+  },
+  {
+    "term": "WIA",
+    "description": "WIA: This signifies whether your employer covered your incapacity-of-work insurance"
+  },
+  {
+    "term": "WAO",
+    "description": "WAO: This signifies whether your employer covered your disability insurance"
+  },
+  {
+    "term": "ZW",
+    "description": "ZW: This signifies whether your employer covered your sickness benefit"
+  },
+  {
+    "term": "Loonheffing",
+    "description": "Loonheffing: This is the total amount of your salary that is actually taxable"
+  },
+  {
+    "term": "vakantie geld",
+    "description": "Vakantie geld: This is the holiday payment reserve for the month"
+  },
+  {
+    "term": "reserveringen",
+    "description": "Reserveringen: This is the total holiday reserve you have accrued"
+  },
+  {
+    "term": "saldo",
+    "description": "Saldo: This is the total holiday reserve you have accrued"
+  },
+  {
+    "term": "vorige",
+    "description": "Vorige: This is the total holiday reserve from the previous months"
   }
 ]

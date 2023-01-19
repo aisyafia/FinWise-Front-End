@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { login } from "../store/users/thunks";
 import { useDispatch, useSelector } from "react-redux";
-import { selectUser, selectToken } from "../store/users/selectors";
+import { selectToken } from "../store/users/selectors";
 import { Link, useNavigate } from "react-router-dom";
 
 const LoginPage = () => {

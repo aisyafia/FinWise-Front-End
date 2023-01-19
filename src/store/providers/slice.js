@@ -17,6 +17,7 @@ export const partnerSlice = createSlice({
       state.partners = action.payload;
     },
     addNewPartner: (state, action) => {
+      console.log("action add new partner?", action);
       const newPartner = action.payload;
       state.partners = [...state.partners, newPartner];
     },

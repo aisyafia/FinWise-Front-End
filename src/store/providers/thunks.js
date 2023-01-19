@@ -1,6 +1,11 @@
 import axios from "axios";
 import { selectToken } from "../users/selectors";
-import { allPartnersFetched, onePartnerFetched } from "../providers/slice";
+import {
+  allPartnersFetched,
+  onePartnerFetched,
+  addNewPartner,
+} from "../providers/slice";
+import { loginSuccess } from "../users/slice";
 
 const apiUrl = "http://localhost:4001";
 
@@ -37,26 +42,41 @@ export const signUpPartner =
     email,
     password,
     serviceProvider,
-    compName,
-    compEmail,
-    compWebsite,
-    compPNumber,
-    compAddress
+    companyName,
+    companyEmail,
+    companyWebsite,
+    companyPhoneNumber,
+    companyLocation
   ) =>
   async (dispatch, getState) => {
+    // console.log(
+    //   "company?",
+    //   serviceProvider,
+    //   companyName,
+    //   companyEmail,
+    //   companyWebsite,
+    //   companyAddress
+    // );
     try {
       const response = await axios.post(`${apiUrl}/auth/signup`, {
         name,
         email,
         password,
         serviceProvider,
-        compName,
-        compEmail,
-        compWebsite,
-        compPNumber,
-        compAddress,
+        companyName,
+        companyEmail,
+        companyWebsite,
+        companyPhoneNumber,
+        companyLocation,
       });
-      console.log("SU partner response", response);
+      // console.log("SU partner response", response);
+      dispatch(addNewPartner(response.data.user));
+      dispatch(
+        loginSuccess({
+          token: response.data.token,
+          profile: response.data.user,
+        })
+      );
     } catch (error) {
       if (error.response) {
         console.log(error.response.data.message);

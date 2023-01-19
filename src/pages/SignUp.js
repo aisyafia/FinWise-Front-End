@@ -1,23 +1,27 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { signUpPartner } from "../store/providers/thunks";
 import { signUpUser } from "../store/users/thunks";
+import { useNavigate } from "react-router-dom";
+import { selectToken } from "../store/users/selectors";
 
 const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [compName, setCompName] = useState("");
-  const [compEmail, setCompEmail] = useState("");
-  const [compWebsite, setCompWebsite] = useState("");
-  const [compPNumber, setCompPNumber] = useState("");
-  const [compAddress, setCompAddress] = useState("");
+  const [companyName, setCompName] = useState("");
+  const [companyEmail, setCompEmail] = useState("");
+  const [companyWebsite, setCompWebsite] = useState("");
+  const [companyPhoneNumber, setCompPNumber] = useState("");
+  const [companyAddress, setCompAddress] = useState("");
   const [checked, setChecked] = useState(false);
   const handleChange = () => {
     setChecked(!checked);
   };
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const token = useSelector(selectToken);
 
   const submitForm = (e) => {
     e.preventDefault();
@@ -28,28 +32,23 @@ const SignUp = () => {
           email,
           password,
           checked,
-          compName,
-          compEmail,
-          compWebsite,
-          compPNumber,
-          compAddress
+          companyName,
+          companyEmail,
+          companyWebsite,
+          companyPhoneNumber,
+          companyAddress
         )
       );
     } else {
       dispatch(signUpUser(name, email, password, checked));
     }
-    // console.log(
-    //   "infos",
-    //   name,
-    //   email,
-    //   password,
-    //   compName,
-    //   compEmail,
-    //   compWebsite,
-    //   compPNumber,
-    //   compAddress
-    // );
   };
+
+  useEffect(() => {
+    if (token !== null) {
+      navigate("/partners");
+    }
+  }, [token, navigate]);
 
   return (
     <div>
@@ -79,27 +78,27 @@ const SignUp = () => {
             <div>
               <input
                 placeholder="Company name"
-                value={compName}
+                value={companyName}
                 onChange={(e) => setCompName(e.target.value)}
               />
               <input
                 placeholder="Company email"
-                value={compEmail}
+                value={companyEmail}
                 onChange={(e) => setCompEmail(e.target.value)}
               />
               <input
                 placeholder="Company website"
-                value={compWebsite}
+                value={companyWebsite}
                 onChange={(e) => setCompWebsite(e.target.value)}
               />
               <input
                 placeholder="Company phone number"
-                value={compPNumber}
+                value={companyPhoneNumber}
                 onChange={(e) => setCompPNumber(e.target.value)}
               />
               <input
                 placeholder="Company location/address"
-                value={compAddress}
+                value={companyAddress}
                 onChange={(e) => setCompAddress(e.target.value)}
               />
             </div>
