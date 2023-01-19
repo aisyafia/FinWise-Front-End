@@ -6,7 +6,7 @@ import {
 } from "react-icons/sl";
 import { InputField } from "../components";
 
-const HomePage = () => {
+const HomePage = (props) => {
   // console.log("text", text);
 
   return (
@@ -39,7 +39,7 @@ const HomePage = () => {
           <br />
           <p>Read away!</p>
         </div>
-        <InputField />
+        <InputField setter={props.setter} getter={props.getter} />
       </div>
       <br />
       <br />

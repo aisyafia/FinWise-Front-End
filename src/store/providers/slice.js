@@ -16,9 +16,14 @@ export const partnerSlice = createSlice({
       //   console.log("action?", action);
       state.partners = action.payload;
     },
+    addNewPartner: (state, action) => {
+      const newPartner = action.payload;
+      state.partners = [...state.partners, newPartner];
+    },
   },
 });
 
-export const { allPartnersFetched, onePartnerFetched } = partnerSlice.actions;
+export const { allPartnersFetched, onePartnerFetched, addNewPartner } =
+  partnerSlice.actions;
 
 export default partnerSlice.reducer;

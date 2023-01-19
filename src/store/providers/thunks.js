@@ -30,3 +30,38 @@ export const fetchPartnerById = (id) => async (dispatch, getState) => {
     console.log("An error has occurred", error);
   }
 };
+
+export const signUpPartner =
+  (
+    name,
+    email,
+    password,
+    serviceProvider,
+    compName,
+    compEmail,
+    compWebsite,
+    compPNumber,
+    compAddress
+  ) =>
+  async (dispatch, getState) => {
+    try {
+      const response = await axios.post(`${apiUrl}/auth/signup`, {
+        name,
+        email,
+        password,
+        serviceProvider,
+        compName,
+        compEmail,
+        compWebsite,
+        compPNumber,
+        compAddress,
+      });
+      console.log("SU partner response", response);
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response.data.message);
+      } else {
+        console.log(error.message);
+      }
+    }
+  };

@@ -17,3 +17,22 @@ export const login = (email, password) => async (dispatch, getState) => {
     console.log("An error has occurred", error);
   }
 };
+
+export const signUpUser =
+  (name, email, password, serviceProvider) => async (dispatch, getState) => {
+    try {
+      const response = await axios.post(`${apiUrl}/auth/signup`, {
+        name,
+        email,
+        password,
+        serviceProvider,
+      });
+      console.log("SUuser response", response);
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response.data.message);
+      } else {
+        console.log(error.message);
+      }
+    }
+  };

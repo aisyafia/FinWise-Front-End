@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { signUpPartner } from "../store/providers/thunks";
+import { signUpUser } from "../store/users/thunks";
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -14,19 +17,38 @@ const SignUp = () => {
     setChecked(!checked);
   };
 
+  const dispatch = useDispatch();
+
   const submitForm = (e) => {
     e.preventDefault();
-    console.log(
-      "infos",
-      name,
-      email,
-      password,
-      compName,
-      compEmail,
-      compWebsite,
-      compPNumber,
-      compAddress
-    );
+    if (checked === true) {
+      dispatch(
+        signUpPartner(
+          name,
+          email,
+          password,
+          checked,
+          compName,
+          compEmail,
+          compWebsite,
+          compPNumber,
+          compAddress
+        )
+      );
+    } else {
+      dispatch(signUpUser(name, email, password, checked));
+    }
+    // console.log(
+    //   "infos",
+    //   name,
+    //   email,
+    //   password,
+    //   compName,
+    //   compEmail,
+    //   compWebsite,
+    //   compPNumber,
+    //   compAddress
+    // );
   };
 
   return (
@@ -51,7 +73,7 @@ const SignUp = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <br />
-          <label>Are you a service provider?</label>
+          <label>Are you a service provider? If Yes, please tick the box</label>
           <input type="checkbox" value={checked} onChange={handleChange} />
           {checked === true ? (
             <div>
