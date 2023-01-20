@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { selectToken } from "../store/users/selectors";
 import { logOut } from "../store/users/slice";
@@ -8,10 +8,13 @@ const NavBar = () => {
   const token = useSelector(selectToken);
   const dispatch = useDispatch();
   return (
-    <div>
-      <Container>
-        <Title>Pay-slip-and-slide</Title>
-
+    <Container>
+      <FirstContainer>
+        <Intro>
+          <Link to="/">
+            <Title>FinWise</Title>
+          </Link>
+        </Intro>
         <MenuLink to="/">Home</MenuLink>
 
         <MenuLink to="/partners">Our Partners</MenuLink>
@@ -21,8 +24,8 @@ const NavBar = () => {
         ) : (
           <MenuLink to="/login">Login</MenuLink>
         )}
-      </Container>
-    </div>
+      </FirstContainer>
+    </Container>
   );
 };
 
@@ -33,10 +36,16 @@ const Container = styled.div`
   border-radius: 6px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
 `;
-
+const FirstContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  height: auto;
+`;
 const MenuLink = styled(NavLink)`
   cursor: pointer;
   text-align: center;
@@ -48,19 +57,18 @@ const MenuLink = styled(NavLink)`
     color: #414361;
   }
 `;
-
-const LinkBox = styled.div`
+const Intro = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  row-gap: 50px;
-  border: 0.125rem double black;
+  flex-direction: column;
+  align-items: center;
+  max-width: 20%;
+  padding-left: 4rem;
 `;
-
 const Title = styled.h1`
-  font-size: 2rem;
+  font-size: 3rem;
   color: #414361;
   align-self: flex-start;
+  text-decoration: none;
 `;
 
 export { NavBar };

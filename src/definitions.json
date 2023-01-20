@@ -12,10 +12,6 @@
     "description": "Pensioenpremie: This is the monthly premium you paid for your pension (old age insurence)"
   },
   {
-    "term": "premie",
-    "description": "Premie: This is the monthly premium you paid for your pension"
-  },
-  {
     "term": "LH/LH korting",
     "description": "LH/LH Korting: This is the applicable tax or tax discount for your salary"
   },
@@ -48,19 +44,19 @@
     "description": "Loonheffing: This is the total amount of your salary that is actually taxable"
   },
   {
-    "term": "vakantie geld",
+    "term": "Vakantiegeld",
     "description": "Vakantie geld: This is the holiday payment reserve for the month"
   },
   {
-    "term": "reserveringen",
+    "term": "Reserveringen",
     "description": "Reserveringen: This is the total holiday reserve you have accrued"
   },
   {
-    "term": "saldo",
+    "term": "Saldo",
     "description": "Saldo: This is the total holiday reserve you have accrued"
   },
   {
-    "term": "vorige",
+    "term": "Vorige",
     "description": "Vorige: This is the total holiday reserve from the previous months"
   }
 ]

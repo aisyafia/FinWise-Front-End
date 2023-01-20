@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import definitions from "../definitions.json";
 import { useDispatch } from "react-redux";
-import { foundWords, downloadedFile } from "../store/files/slice";
+import { foundWords } from "../store/files/slice";
+import { Button, Box } from "@mui/material";
 
 const InputField = (props) => {
   const apiUrl = "http://localhost:4001";
@@ -42,14 +43,21 @@ const InputField = (props) => {
 
   return (
     <div>
-      <form onSubmit={upload}>
-        <input
-          type="file"
-          accept="application/pdf"
-          onChange={handleFileChange}
-        />
-        <button type="submit">Upload your file</button>
-      </form>
+      <Box sx={{ m: 1 }}>
+        <form onSubmit={upload}>
+          <Box sx={{ display: "flex", alignItems: "flex-end", margin: "1rem" }}>
+            <input
+              required
+              type="file"
+              accept="application/pdf"
+              onChange={handleFileChange}
+            />
+          </Box>
+          <Button type="submit" variant="contained" size="small">
+            Upload your file
+          </Button>
+        </form>
+      </Box>
     </div>
   );
 };

@@ -1,10 +1,6 @@
 import axios from "axios";
 import { selectToken } from "../users/selectors";
-import {
-  allPartnersFetched,
-  onePartnerFetched,
-  addNewPartner,
-} from "../providers/slice";
+import { allPartnersFetched, onePartnerFetched } from "../providers/slice";
 import { loginSuccess } from "../users/slice";
 
 const apiUrl = "http://localhost:4001";
@@ -70,7 +66,7 @@ export const signUpPartner =
         companyLocation,
       });
       // console.log("SU partner response", response);
-      dispatch(addNewPartner(response.data.user));
+      // dispatch(addNewPartner(response.data.user));
       dispatch(
         loginSuccess({
           token: response.data.token,

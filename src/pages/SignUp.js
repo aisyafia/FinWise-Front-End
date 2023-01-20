@@ -4,6 +4,8 @@ import { signUpPartner } from "../store/providers/thunks";
 import { signUpUser } from "../store/users/thunks";
 import { useNavigate } from "react-router-dom";
 import { selectToken } from "../store/users/selectors";
+import { Box, TextField, Button, Checkbox } from "@mui/material";
+import styled from "styled-components";
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -51,52 +53,73 @@ const SignUp = () => {
   }, [token, navigate]);
 
   return (
-    <div>
+    <MainContainer>
       <h2>Sign up to access our experts</h2>
-      <div>
+      <Box sx={{ m: 1, p: 1, maxWidth: "35%", height: "auto" }}>
         <form onSubmit={submitForm}>
-          <input
-            placeholder="Full name"
+          <TextField
+            fullWidth
+            variant="filled"
+            label="Full name"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-          <input
-            placeholder="Email address"
+          <TextField
+            fullWidth
+            variant="filled"
+            label="Email address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <input
+          <TextField
+            fullWidth
+            variant="filled"
             type="password"
-            placeholder="Password"
+            label="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
           <br />
-          <label>Are you a service provider? If Yes, please tick the box</label>
-          <input type="checkbox" value={checked} onChange={handleChange} />
+          <label>I am registering as a company/service provider</label>
+          <Checkbox
+            label="I am registering as a company/serviceprovider"
+            value={checked}
+            onChange={handleChange}
+          />
+          {/* <input type="checkbox" value={checked} onChange={handleChange} /> */}
           {checked === true ? (
             <div>
-              <input
+              <TextField
+                fullWidth
+                variant="filled"
                 placeholder="Company name"
                 value={companyName}
                 onChange={(e) => setCompName(e.target.value)}
               />
-              <input
+              <TextField
+                fullWidth
+                variant="filled"
                 placeholder="Company email"
                 value={companyEmail}
                 onChange={(e) => setCompEmail(e.target.value)}
               />
-              <input
+              <TextField
+                fullWidth
+                variant="filled"
                 placeholder="Company website"
                 value={companyWebsite}
                 onChange={(e) => setCompWebsite(e.target.value)}
               />
-              <input
+              <TextField
+                fullWidth
+                variant="filled"
                 placeholder="Company phone number"
                 value={companyPhoneNumber}
                 onChange={(e) => setCompPNumber(e.target.value)}
               />
-              <input
+              <TextField
+                fullWidth
+                variant="filled"
                 placeholder="Company location/address"
                 value={companyAddress}
                 onChange={(e) => setCompAddress(e.target.value)}
@@ -105,11 +128,20 @@ const SignUp = () => {
           ) : (
             <></>
           )}
-          <button type="submit">Sign up</button>
+          <br />
+          <Button type="submit" variant="contained">
+            Sign up
+          </Button>
         </form>
-      </div>
-    </div>
+      </Box>
+    </MainContainer>
   );
 };
+
+const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+`;
 
 export { SignUp };
