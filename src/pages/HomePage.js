@@ -12,6 +12,10 @@ const HomePage = (props) => {
 
   return (
     <MainContainer>
+      <img
+        src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzV8fGZpbmFuY2V8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
+        width="300rem"
+      />
       <h2>Understand what you earn</h2>
       <FirstContainer>
         <Intro>
@@ -118,12 +122,13 @@ const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding: 4rem;
 `;
 const FirstContainer = styled.div`
   display: flex;
   flex-direction: row;
-  max-width: 80%;
+  align-items: center;
   margin: 2rem;
 `;
 const Intro = styled.div`
@@ -137,14 +142,12 @@ const Steps = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 55%;
   height: auto;
 `;
 const Step = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 80%;
   padding: 1rem;
 `;
 

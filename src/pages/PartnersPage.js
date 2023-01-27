@@ -30,10 +30,10 @@ const PartnersPage = () => {
           partners.map((p) => {
             return (
               <PartnerCard>
+                <img src={p.companyLogo} width="150rem" alt="company logo" />
                 <Link to={`/partners/${p.id}`}>
                   <h4>{p.companyName}</h4>
                 </Link>
-                <p>{p.companyLocation}</p>
               </PartnerCard>
             );
           })

@@ -28,6 +28,7 @@ const OnePartner = () => {
     <div>
       <h2>More about this expert:</h2>
       <PartnerCard>
+        <img src={partner.companyLogo} width="150rem" />
         <h3>{partner.companyName}</h3>
         <p>
           Website:{" "}
